@@ -291,6 +291,22 @@ Primary Loader, Fallback Loader, Timeout (Xms)
 
 **Note**: **USDT** = **USD** (1:1). For this challenge we display as **USD**; optionally annotate "USD" in the UI/README
 
+### CryptoCompare (Fallback)
+
+`https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=coinbase`
+
+#### Example (simplified)
+
+```json
+{
+  "RAW": {
+    "PRICE": 68910.12,
+    "FROMSYMBOL": "BTC",
+    "TOSYMBOL": "USD"
+  }
+}
+```
+
 ## Non‑Functional Requirements
 
 - **Temporal accuracy**: one tick ≈ every 1s. If a fetch cycle exceeds 1s, treat the tick as failed (show banner).
