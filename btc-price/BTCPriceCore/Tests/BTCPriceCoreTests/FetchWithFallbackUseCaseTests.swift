@@ -47,6 +47,18 @@ struct FetchWithFallbackUseCaseTests {
     #expect(received == expected)
   }
 
+  @Test
+  func fetchWithFallback_throwsWhenBothFail() async throws {
+    let primary = ClosureLoader { throw DummyError.any }
+    let fallback = ClosureLoader { throw DummyError.any }
+
+    let sut = FetchWithFallback(primary: primary, fallback: fallback)
+
+    await #expect(throws: Error.self) {
+      _ = try await sut.execute()
+    }
+  }
+
   // MARK: - Helpers
 
   struct ClosureLoader: PriceLoader {
