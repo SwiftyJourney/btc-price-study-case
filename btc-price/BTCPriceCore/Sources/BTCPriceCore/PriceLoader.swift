@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol PriceLoader {
+public protocol PriceLoader: Sendable {
   func loadLatest() async throws -> PriceQuote
 }

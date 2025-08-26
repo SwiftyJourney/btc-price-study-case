@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PriceQuote: Equatable {
+public struct PriceQuote: Equatable, Sendable {
   public let value: Decimal
   public let currency: String
   public let timestamp: Date
