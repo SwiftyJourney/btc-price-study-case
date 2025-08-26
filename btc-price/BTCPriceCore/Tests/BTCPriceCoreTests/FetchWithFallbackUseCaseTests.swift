@@ -62,7 +62,7 @@ struct FetchWithFallbackUseCaseTests {
   // MARK: - Helpers
 
   struct ClosureLoader: PriceLoader {
-    let action: () async throws -> PriceQuote
+    let action: @Sendable () async throws -> PriceQuote
     func loadLatest() async throws -> PriceQuote { try await action() }
   }
 
